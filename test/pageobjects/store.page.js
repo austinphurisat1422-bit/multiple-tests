@@ -1,6 +1,7 @@
 import { $, browser } from '@wdio/globals'
 import Page from './page.js';
 import LoginPage from './login.page.js';
+import CartPage from './cart.page.js';
 
 class StorePage extends Page {
     get cartLink () {
@@ -75,6 +76,18 @@ class StorePage extends Page {
         await browser.refresh();
         await this.hamburgerMenu.click();
         await this.assertLogout();
+    }
+
+    async addToCart (amount) {
+        for (let i = 0; i < amount; i++) {
+            await this.addAllToCart.click();
+        }
+        await expect(this.cartBadge).toHaveText(expect.stringContaining(`${amount}`));
+    }
+
+    async goToCart () {
+        await this.cartLink.click();
+        await expect(CartPage.cartQuantity).toExist();
     }
 }
 

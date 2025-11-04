@@ -8,15 +8,18 @@ async function initialize() {
 
 describe ('Cart features function correctly', () =>{
     it('should correctly add items to cart', async () => {
-        
-    })
-    it('should create a badge on the cart icon', async () => {
+        initialize();
 
+        await StorePage.addToCart(3);
+        await StorePage.goToCart();
     })
-    it('should list item names with correct descriptions and prices', async () => {
+    // it('should create a badge on the cart icon', async () => {
 
-    })
-    it('should correctly remove items from the cart', async () => {
+    // })
+    // it('should list item names with correct descriptions and prices', async () => {
 
-    })
+    // })
+    // it('should correctly remove items from the cart', async () => {
+
+    // })
 })
