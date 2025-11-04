@@ -16,13 +16,13 @@ describe('Hamburger menu buttons function on:', () => {
     it ('item page', async () => {
         initialize();
 
-        await StorePage.backpackProductImg.click();
+        await StorePage.goToItem();
         await StorePage.assertHamburgerMenu();
     })
     it ('cart page', async () => {
         initialize();
 
-        await StorePage.cartLink.click();
+        await StorePage.goToCart();
         await StorePage.assertHamburgerMenu();
     })
 })

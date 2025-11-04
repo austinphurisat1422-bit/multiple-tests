@@ -102,6 +102,10 @@ class StorePage extends Page {
         await this.cartLink.click();
         await expect(CartPage.cartQuantity).toExist();
     }
+
+    async goToItem () {
+        await this.backpackProductImg.click();
+    }
 }
 
 export default new StorePage();
