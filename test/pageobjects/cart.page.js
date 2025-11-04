@@ -11,6 +11,10 @@ class CartPage extends Page {
         return $$('.cart_item_label');
     }
 
+    get removeBtn () {
+        return $('button[id*="remove"]')
+    }
+
     get cartQuantity () {
         return $('.cart_quantity_label');
     }
@@ -49,6 +53,16 @@ class CartPage extends Page {
                     break;
             }
         }
+    }
+
+    async assertRemoveFromCart() {
+        let cartSize = await this.cartItemLabels.length;
+
+        for (let i = 0; i < cartSize; i++) {
+            await this.removeBtn.click();
+        }
+
+        await expect(this.cartBadge).not.toExist();
     }
 }
 
